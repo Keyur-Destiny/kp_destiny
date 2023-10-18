@@ -44,7 +44,7 @@
         </xpath>
     </template>
 
-    <template id="rental_product" inherit_id="website_sale.product" name="Select pickup Date and Return Date">
+    <template id="rental_product1" inherit_id="website_sale.product" name="Select pickup Date and Return Date">
         <xpath expr="//ol[hasclass('breadcrumb')]" position="replace">
             <a class="btn btn-primary" href="/rental-orders"><i class="fa fa-arrow-left" aria-hidden="true"/>Back
             </a>
