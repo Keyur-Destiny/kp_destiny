@@ -1,1 +1,1 @@
-from . import web_home
+from . import home
