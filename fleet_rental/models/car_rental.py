@@ -161,6 +161,7 @@ class CarRentalContract(models.Model):
 
     @api.constrains('checklist_line', 'damage_cost')
     def total_updater(self):
+        print("cx/czx/c/xcz/czxc/zxc/zxc/zx/cz/xc/czxc/zxc///c/")
         total = 0.0
         tools_missing_cost = 0.0
         for records in self.checklist_line:
@@ -185,6 +186,7 @@ class CarRentalContract(models.Model):
             'invoice_origin': self.name,
             'invoice_date_due': self.rent_end_date,
         }
+
         inv_id = inv_obj.create(inv_data)
         product_id = self.env['product.product'].search([("name", "=", "Fleet Rental Service")])
         if product_id.property_account_income_id.id:
@@ -475,6 +477,7 @@ class CarRentalContract(models.Model):
                     rental_days = int(rental_days / 7)
                 if each.cost_frequency == 'monthly':
                     rental_days = int(rental_days / 30)
+                print("v/xccv/zxcvc/vc/xv/cv//xcvvvvvvvvvvvvv", rental_days)
                 for each1 in range(0, rental_days + 1):
                     if rent_date > datetime.strptime(str(each.rent_end_date), "%Y-%m-%d").date():
                         break
