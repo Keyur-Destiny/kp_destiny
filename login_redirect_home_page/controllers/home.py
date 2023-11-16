@@ -5,7 +5,7 @@ from odoo import http
 from odoo.exceptions import AccessError
 from odoo.http import request
 from odoo.service import security
-from .utils import ensure_db, _get_login_redirect_url, is_user_internal
+from odoo.addons.web.controllers.utils import ensure_db, _get_login_redirect_url, is_user_internal
 
 
 
