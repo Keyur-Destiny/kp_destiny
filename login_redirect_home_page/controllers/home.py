@@ -18,7 +18,7 @@ class Home(WebHome):
         # Ensure we have both a database and a user
         ensure_db()
         if not request.session.uid:
-            return request.redirect('/')
+            return request.redirect('/home')
         if kw.get('redirect'):
             return request.redirect(kw.get('redirect'), 303)
         if not security.check_session(request.session, request.env):
