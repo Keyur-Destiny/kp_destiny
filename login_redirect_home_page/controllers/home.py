@@ -14,11 +14,10 @@ class Home(WebHome):
 
     @http.route('/web', type='http', auth="none")
     def web_client(self, s_action=None, **kw):
-
         # Ensure we have both a database and a user
         ensure_db()
         if not request.session.uid:
-            return request.redirect('/home')
+            return request.redirect('/')
         if kw.get('redirect'):
             return request.redirect(kw.get('redirect'), 303)
         if not security.check_session(request.session, request.env):
