@@ -12,7 +12,7 @@
                 </div>
 
         </xpath>
-        <xpath expr="//t[@t-set='_actionName']" position="replace"/>
+<!--        <xpath expr="//t[@t-set='_actionName']" position="replace"/>-->
         <xpath expr="//div[hasclass('control-buttons')]" position="replace"/>
         <xpath expr="//div[hasclass('pads')]" position="before">
             <div style="display:flex;justify-content: space-evenly;">
