@@ -65,8 +65,9 @@
                                                             selectedPartner="state.selectedPartner"
                                                             detailIsShown="state.detailIsShown"
                                                             isBalanceDisplayed="isBalanceDisplayed"
-                                                            onClickEdit.bind="editPartner"
                                                             onClickPartner.bind="clickPartner"/>
+                                                <!--                                                            onClickEdit.bind="editPartner"-->
+
                                             </t>
                                         </tbody>
                                     </table>

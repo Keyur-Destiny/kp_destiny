@@ -9,6 +9,7 @@ class PosSession(models.Model):
         res.append('medicine.usage')
         res.append('basic.salt')
         res.append('medicine.safety.advice')
+        res.append('medicine.manufacture')
         return res
 
 
@@ -24,14 +25,22 @@ class PosSession(models.Model):
         res['search_params']['fields'].append('alternate_medicine_ids')
         return res
 
+
+    def _loader_params_res_partner(self):
+        res = super(PosSession, self)._loader_params_res_partner()
+        res['search_params']['fields'].append('is_doctor')
+        return res
+
     def _loader_params_medicine_manufacture(self):
         return {
             'search_params': {
-                'domain': ['|', ('active', '=', False), ('active', '=', True)],
+                'domain': [],
                 'fields': ['name', 'id'],
-
             },
         }
+
+    def _get_pos_ui_medicine_manufacture(self, params):
+        return self.env['medicine.manufacture'].search_read(**params['search_params'])
 
     def _loader_params_medicine_usage(self):
         return {

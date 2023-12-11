@@ -4,6 +4,8 @@ import ProductsWidgetControlPanel from "point_of_sale.ProductsWidgetControlPanel
 import Registries from "point_of_sale.Registries";
 import {format} from "web.field_utils";
 import utils from "web.utils";
+const { Gui } = require('point_of_sale.Gui');
+
 const ProductsWidgetControlPanelInherit = (ProductsWidgetControlPanel) =>
     class ProductsWidgetControlPanelInherit extends ProductsWidgetControlPanel {
 
@@ -18,6 +20,12 @@ const ProductsWidgetControlPanelInherit = (ProductsWidgetControlPanel) =>
        else{
        this.env.pos.showProductList = false;
        }
+      }
+
+      _onClickShowSearchPopup(ev){
+      console.log("zx/czx/czxc/zx/c/cz/c", this);
+      Gui.showPopup('AdvanceSearchPopup');
+
       }
     };
 

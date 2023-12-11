@@ -39,7 +39,7 @@ odoo.define('pos_pharmacy_management.DoctorListScreen', function(require) {
             // is better to be safe.
             this.state = {
                 query: null,
-                selectedPartner: this.props.partner,
+                selectedDoctor: this.props.doctor,
                 detailIsShown: false,
                 editModeProps: {
                     partner: null,
@@ -61,7 +61,9 @@ odoo.define('pos_pharmacy_management.DoctorListScreen', function(require) {
             }
         }
         confirm() {
-            this.props.resolve({ confirmed: true, payload: this.state.selectedPartner });
+            this.props.resolve({ confirmed: true});
+            console.log("zxc/z/xcz/xc/c/c/c/cc/c/", this.state.selectedDoctor);
+            this.props.doctor = this.state.selectedDoctor;
             this.trigger('close-temp-screen');
         }
         activateEditMode() {
@@ -76,13 +78,34 @@ odoo.define('pos_pharmacy_management.DoctorListScreen', function(require) {
 
         get partners() {
             let res;
-            let foundProductIds =  this.rpc({
-                        model: 'res.partner',
-                        method: 'search',
-                        args: [[['is_doctor', '=', true]]],
-                    });
-            console.log("zx/czx/czcx/czx/cxz/czx/czx/c/zxcc",foundProductIds);
-            return res
+            let final_res = new Array();
+            if (this.state.query && this.state.query.trim() !== '') {
+                res = this.env.pos.db.search_partner(this.state.query.trim());
+            } else {
+                res = this.env.pos.db.get_partners_sorted(1000);
+            }
+            console.log("cx/cxc/cccccccccc3445665465345", res);
+            res.sort(function (a, b) { return (a.name || '').localeCompare(b.name || '') });
+            // the selected partner (if any) is displayed at the top of the list
+            if (this.state.selectedDoctor) {
+                let indexOfSelectedDoctor = res.findIndex( partner =>
+                    partner.id === this.state.selectedDoctor.id
+                );
+                if (indexOfSelectedDoctor !== -1) {
+                    res.splice(indexOfSelectedDoctor, 1);
+                    res.unshift(this.state.selectedDoctor);
+                }
+            }
+            console.log("zx/cczx/czx/cc/c/c/c/c/c/c", res);
+            for (var i = 0; i < res.length; i++) {
+
+              if (res[i]['is_doctor'] == true)
+              {
+              final_res.push(res[i]);
+              }
+            }
+            return final_res;
+
         }
         get isBalanceDisplayed() {
             return false;
@@ -127,21 +150,22 @@ odoo.define('pos_pharmacy_management.DoctorListScreen', function(require) {
             this.state.query = event.target.value;
             this.render(true);
         }
-        clickPartner(partner) {
-            if (this.state.selectedPartner && this.state.selectedPartner.id === partner.id) {
-                this.state.selectedPartner = null;
+        clickDoctor(partner) {
+            console.log('xc/xzc/cccccccccccccccccccccccccccczxzxxzxcccxx232323');
+            if (this.state.selectedDoctor && this.state.selectedDoctor.id === partner.id) {
+                this.state.selectedDoctor = null;
             } else {
-                this.state.selectedPartner = partner;
+                this.state.selectedDoctor = partner;
             }
             this.confirm();
         }
         editPartner(partner) {
-            this.state.editModeProps.partner = partner;
+            this.state.editModeProps.doctor = partner;
             this.activateEditMode();
         }
         createPartner() {
             // initialize the edit screen with default details about country & state
-            this.state.editModeProps.partner = {
+            this.state.editModeProps.doctor = {
                 country_id: this.env.pos.company.country_id,
                 state_id: this.env.pos.company.state_id,
             }
@@ -155,7 +179,7 @@ odoo.define('pos_pharmacy_management.DoctorListScreen', function(require) {
                     args: [event.detail.processedChanges],
                 });
                 await this.env.pos.load_new_partners();
-                this.state.selectedPartner = this.env.pos.db.get_partner_by_id(partnerId);
+                this.state.selectedDoctor = this.env.pos.db.get_partner_by_id(partnerId);
                 this.confirm();
             } catch (error) {
                 if (isConnectionError(error)) {

@@ -9,12 +9,10 @@ odoo.define('pos_pharmacy_management.AlternateMedicinePopup', function(require) 
     class AlternateMedicinePopup extends AbstractAwaitablePopup {
         setup() {
             super.setup();
-            const res = this.env.pos.db.product_by_id;
-            console.log("xz/cc/xzczx/czx/ccx/czc/",res[3]);
             var final_arr = [];
 
             for (var i = 0; i < this.props.info.alternate_medicine_ids.length; i++) {
-
+               console.log("x/zcc/xzc/zcc/////////////", this.props.info.alternate_medicine_ids[i]);
               final_arr.push({
               'id':this.env.pos.db.product_by_id[this.props.info.alternate_medicine_ids[i]]['id'],
               'display_name':this.env.pos.db.product_by_id[this.props.info.alternate_medicine_ids[i]]['display_name'],

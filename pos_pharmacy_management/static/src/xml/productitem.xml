@@ -24,19 +24,18 @@
                </article>
             </t>
             <t t-else="">
+             <article class="product" tabindex="0" t-on-keypress="spaceClickProduct"
+                      t-on-click="() => this.trigger('click-product', props.product)"
+                      t-att-data-product-id="props.product.id"
+                      t-attf-aria-labelledby="article_product_{{props.product.id}}">
+                <div style="display:flex;justify-content: space-between;font-size:14px;">
 
-                <div style="display:flex;justify-content: space-between;">
+               <div class="text-align:left;">
 
-               <div>
-                   <article class="product" tabindex="0" t-on-keypress="spaceClickProduct"
-                            t-on-click="() => this.trigger('click-product', props.product)"
-                            t-att-data-product-id="props.product.id"
-                            t-attf-aria-labelledby="article_product_{{props.product.id}}">
                        <div class="product-img">
                         <img t-att-src="imageUrl" t-att-alt="props.product.display_name"
                         />
                        </div>
-                    </article>
 
                </div>
                     <div style="text-align:left;">
@@ -47,10 +46,10 @@
                         <br/>
                         <br/>
                         <br/>
-                        <span style="color:blue;" t-on-click="_onClickAlternateMedicine">Alternate Medicines</span>
+                        <span style="color:black;" t-on-click="_onClickAlternateMedicine">Alternate Medicines</span>
 
                    </div>
-                    <div>
+                    <div style="text-align:left;">
                       <span t-esc="props.product.medicine_manufacture_id[1]"/>
                         <br/>
                         <t t-if="props.product.medicine_usage_ids">
@@ -71,6 +70,8 @@
                     </div>
 
                </div>
+                                    </article>
+
 
             </t>
         </xpath>
@@ -99,7 +100,9 @@
 
     <t t-inherit="point_of_sale.ProductsWidgetControlPanel" t-inherit-mode="extension">
         <xpath expr="//span[hasclass('breadcrumb-home')]" position="before">
-           <span class="fa fa-bars" style="font-size:24px;margin-top:10px;" t-on-click="_onClickShowProductList"/>
+           <span class="fa fa-search" style="font-size:24px;margin-top:10px;color:#017e84;" t-on-click="_onClickShowSearchPopup"/>
+
+           <span class="fa fa-bars" style="font-size:24px;margin-top:10px;color:#017e84;padding-left:10px;" t-on-click="_onClickShowProductList"/>
         </xpath>
 
     </t>
@@ -145,7 +148,7 @@
                                                 </t>
 
   </div>
-                       <div class="panel" id="four-panel">
+                    <div class="panel" id="four-panel">
                          <t t-foreach="props.safety_advice" t-as="advice" t-key="advice.id">
                                                     <h3 t-esc="advice.name"/>
                              <h5 t-esc="advice.safety_advice"/>
@@ -248,11 +251,9 @@
             </main>
             <footer class="footer centered">
                         <div class="button cancel" t-on-mousedown.prevent="cancel">
-                            <t t-esc="props.cancelText"/>
+                            EXIT
                         </div>
-                <div class="button confirm highlight" t-on-mousedown.prevent="confirm">
-                            <t t-esc="props.confirmText"/>
-                        </div>
+
                     </footer>
 
   </div>

@@ -14,7 +14,6 @@ const ProductScreenInherit = (ProductScreen) =>
       }
 
       async onClickDoctor() {
-
        const currentPartner = this.currentOrder.get_partner();
             if (currentPartner && this.currentOrder.getHasRefundLines()) {
                 this.showPopup('ErrorPopup', {
@@ -30,7 +29,7 @@ const ProductScreenInherit = (ProductScreen) =>
             }
             const { confirmed, payload: newPartner } = await this.showTempScreen(
                 'DoctorListScreen',
-                { partner: currentPartner }
+                { doctor: currentPartner }
             );
             if (confirmed) {
                 this.currentOrder.set_partner(newPartner);

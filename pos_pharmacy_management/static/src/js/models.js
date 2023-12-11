@@ -11,6 +11,8 @@ const PosHrPosGlobalState = (PosGlobalState) => class PosHrPosGlobalState extend
             this.medicine_usage_by_id = loadedData['medicine.usage'];
             this.basic_salt_by_id = loadedData['basic.salt'];
             this.safety_advice_by_id = loadedData['medicine.safety.advice'];
+            this.safety_advice_by_id = loadedData['medicine.safety.advice'];
+            this.medicine_manu_by_id = loadedData['medicine.manufacture'];
     }
 
 }
