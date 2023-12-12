@@ -75,7 +75,7 @@
         <field name="context">{}</field>
     </record>
 
-    <menuitem id="hospital_laboratory_root_menu"
+    <menuitem id="hospital_laboratory_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_chemist"
               name="Laboratory"
               sequence="9"
               parent="hospital_root_menu"

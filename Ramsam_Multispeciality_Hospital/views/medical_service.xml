@@ -52,7 +52,7 @@
     </record>
 
 
-    <menuitem id="hospital_medical_root_menu"
+    <menuitem id="hospital_medical_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_medical_group"
               name="Medical Service"
               sequence="13"
               parent="hospital_root_menu"

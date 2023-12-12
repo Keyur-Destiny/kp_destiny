@@ -53,7 +53,7 @@
     </record>
 
 
-   <menuitem id="hospital_surgery_root_menu"
+   <menuitem id="hospital_surgery_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Surgery"
               sequence="8"
               parent="hospital_root_menu"

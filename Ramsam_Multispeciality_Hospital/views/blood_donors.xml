@@ -69,7 +69,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="hospital_blood_root_menu"
+    <menuitem id="hospital_blood_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_medical_group"
               name="Blood Bank"
               sequence="11"
               parent="hospital_root_menu"

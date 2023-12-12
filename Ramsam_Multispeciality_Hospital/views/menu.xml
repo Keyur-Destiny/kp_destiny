@@ -7,26 +7,26 @@
               name="Hospital"
               action=""/>
     <!-- Hospital Patient Root Menu -->
-    <menuitem id="hospital_patient_root_menu"
+    <menuitem id="hospital_patient_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Patients Record"
               sequence="1"
               parent="hospital_root_menu"
               action=""/>
 
     <!--  Hospital Appointment Root Menu -->
-    <menuitem id="hospital_appointment_root_menu"
+    <menuitem id="hospital_appointment_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Appointments Record"
               sequence="2"
               parent="hospital_root_menu"
               action=""/>
     <!--  Hospital Employee Root Menu -->
-    <menuitem id="hospital_employee_root_menu"
+    <menuitem id="hospital_employee_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_receptionist"
               name="Nursing"
               sequence="6"
               parent="hospital_root_menu"
               action=""/>
     <!--  Hospital Pharmacy Root Menu -->
-    <menuitem id="hospital_pharmacy_root_menu"
+    <menuitem id="hospital_pharmacy_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_chemist"
               name="Pharmacy"
               sequence="7"
               parent="hospital_root_menu"
@@ -40,7 +40,7 @@
 
 
 
-    <menuitem id="hospital_pediatric_root_menu"
+    <menuitem id="hospital_pediatric_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Pediatric"
               sequence="5"
               parent="hospital_root_menu"
@@ -69,7 +69,7 @@
               sequence="0"/>
 
 
-    <menuitem id="hospitalize_patient_root_menu"
+    <menuitem id="hospitalize_patient_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Important Administration"
               sequence="3"
               parent="hospital_root_menu"
@@ -110,7 +110,7 @@
               parent="hospitalize_patient_root_menu"
               action="action_patient_hospitalization"/>
 
-    <menuitem id="hospital_imaging_menu"
+    <menuitem id="hospital_imaging_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Imaging"
               sequence="4"
               parent="hospital_root_menu"
@@ -134,7 +134,7 @@
               parent="hospital_patient_root_menu"
               action="action_deceased_hospital_patient"/>
 
-    <menuitem id="hospital_doctor_root_menu"
+    <menuitem id="hospital_doctor_root_menu" groups="Ramsam_Multispeciality_Hospital.group_hospital_doctor"
               name="Doctors Record"
               sequence="3"
               parent="hospital_root_menu"/>

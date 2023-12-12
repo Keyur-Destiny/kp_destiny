@@ -12,6 +12,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security_access.xml',
         'data/sequence_number_data.xml',
         'data/patient_reg_mail_template_data.xml',
         'wizard/bed_transfer.xml',
